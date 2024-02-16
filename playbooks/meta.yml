@@ -3,9 +3,9 @@
 # file: playbooks/meta.yml
 
 - name: "Play: generate meta/main.yml for roles inventory"
-  hosts: all
+  hosts: "{{ target | default('test') }}"
   become: false
-  gather_facts: true
+  gather_facts: false
   tasks:
     - name: "Ensure that role and meta directory exist"
       ansible.builtin.file:

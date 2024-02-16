@@ -97,9 +97,9 @@ class InventoryModule(BaseInventoryPlugin):
                                 raise AnsibleError(f"Error reading {meta_path}: {exc}") from exc
                     self.inventory.add_host(host_name)
                     self.inventory.set_variable(host_name,
-                                                'ansible_connection', 'chroot')
+                                                'ansible_connection', 'community.general.chroot')
                     self.inventory.set_variable(host_name,
-                                                'ansible_chroot_dir', os.path.join(root, dir_name))
+                                                'remote_addr', os.path.join(root, dir_name))
 
 def main():
     """
