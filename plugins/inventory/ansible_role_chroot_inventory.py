@@ -8,6 +8,7 @@ as inventory hosts.
 """
 
 import os
+import yaml
 from ansible.errors import AnsibleError
 from ansible.plugins.inventory import BaseInventoryPlugin
 
@@ -56,7 +57,7 @@ class InventoryModule(BaseInventoryPlugin):
         super().verify_file(path)
         # Ensure file has proper content for this plugin
         valid = True
-
+        # Implement any additional checks here to verify the file
         return valid
 
     def parse(self, inventory, loader, path, cache=True):
@@ -81,6 +82,19 @@ class InventoryModule(BaseInventoryPlugin):
                 if search_prefix == '' or dir_name.startswith(search_prefix):
                     # Extract the part of the directory name following the search prefix
                     host_name = dir_name[len(search_prefix):]
+                    meta_path = os.path.join(root, dir_name, "meta", "main.yml")
+                    if os.path.exists(meta_path):
+                        with open(meta_path, 'r', encoding='utf-8') as meta_file:
+                            try:
+                                meta_content = yaml.safe_load(meta_file) or {}
+                                galaxy_tags = meta_content.get(
+                                    'galaxy_info', {}).get('galaxy_tags', [])
+                                if galaxy_tags:
+                                    for tag in galaxy_tags:
+                                        self.inventory.add_group(tag)
+                                        self.inventory.add_host(host_name, group=tag)
+                            except yaml.YAMLError as exc:
+                                raise AnsibleError(f"Error reading {meta_path}: {exc}") from exc
                     self.inventory.add_host(host_name)
                     self.inventory.set_variable(host_name,
                                                 'ansible_connection', 'chroot')
@@ -93,9 +107,10 @@ def main():
     """
     # For testing purposes, this main function won't be executed by Ansible
     # but can be used for direct testing.
+    # Replace '/path/to/search' with a valid path for testing.
     inventory = InventoryModule()
     loader = None
-    path = 'inventory.yml'
+    path = '/path/to/inventory_file.yml'
     inventory.parse(None, loader, path)
     print(inventory.inventory.hosts)
 
