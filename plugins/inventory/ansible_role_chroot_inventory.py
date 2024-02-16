@@ -99,7 +99,7 @@ class InventoryModule(BaseInventoryPlugin):
                     self.inventory.set_variable(host_name,
                                                 'ansible_connection', 'community.general.chroot')
                     self.inventory.set_variable(host_name,
-                                                'remote_addr', os.path.join(root, dir_name))
+                                                'ansible_host', os.path.join(root, dir_name))
 
 def main():
     """
