@@ -1,0 +1,7 @@
+---
+# collection: meta
+# file: tests/integration/targets/generate_argument_specs/defaults/main.yml
+
+test_variable_string: "Test string"
+test_variable_int: 42
+test_variable_bool: true

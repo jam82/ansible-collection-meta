@@ -1,0 +1,39 @@
+---
+# collection: meta
+# file: tests/integration/targets/generate_argument_specs/test_generate_argument_specs.yml
+
+- name: Test generate_argument_specs module
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Run generate_argument_specs module
+      my_namespace.my_collection.generate_argument_specs:
+        defaults_file: "defaults/main.yml"
+        output_file: "meta/argument_specs.yml"
+      register: result
+      check_mode: no
+
+    - name: Verify the output file was created
+      assert:
+        that:
+          - result.changed == true
+          - "'argument_specs.yml' in result.message"
+
+    - name: Read the generated argument_specs.yml
+      ansible.builtin.slurp:
+        src: "meta/argument_specs.yml"
+      register: argument_specs_content
+
+    - name: Convert argument_specs content to a variable
+      set_fact:
+        argument_specs: "{{ argument_specs_content['content'] | b64decode | from_yaml }}"
+
+    - name: Assert content of argument_specs.yml
+      assert:
+        that:
+          - "'test_variable_string' in argument_specs.role_parameters"
+          - "'test_variable_int' in argument_specs.role_parameters"
+          - "'test_variable_bool' in argument_specs.role_parameters"
+          - "argument_specs.role_parameters['test_variable_string']['type'] == 'str'"
+          - "argument_specs.role_parameters['test_variable_int']['type'] == 'int'"
+          - "argument_specs.role_parameters['test_variable_bool']['type'] == 'bool'"
