@@ -23,6 +23,7 @@
 - [License](#license)
 - [Author Information](#author-information)
 - [Contributing](#contributing)
+- [References](#references)
 
 ## Prerequisites
 
@@ -126,3 +127,17 @@ This role was created in {{ meta_year_created }} by {{ meta_author }} (@{{ meta_
 
 Contributions to this role are welcome.
 Please follow the steps described in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## References
+
+{% if not meta_references %}
+No references.
+{% else %}
+The following are the default variables that should be adjusted:
+
+{% for reference in meta_references %}
+- {{ reference }}
+{% endfor %}
+{% endif %}
+
+---
