@@ -3,7 +3,7 @@
 # file: meta/requirements.yml
 
 {% if not meta_requirements_collections %}collections: []{% endif %}
-{% if requirements_collections %}
+{% if meta_requirements_collections %}
 collections:
 {% for collection in meta_requirements_collections %}
   - {{ collection }}
