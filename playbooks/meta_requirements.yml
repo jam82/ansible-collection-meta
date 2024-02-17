@@ -15,7 +15,7 @@
 
     - name: "Generate meta/requirements.yml for role {{ meta_role_name }}"
       ansible.builtin.template:
-        src: "meta_requirements.yml.j2"
+        src: "meta/requirements.yml.j2"
         dest: "{{ ansible_host }}/meta/requirements.yml"
         mode: "0644"
         validate: "ansible-lint %s"

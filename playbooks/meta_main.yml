@@ -15,7 +15,7 @@
 
     - name: "Generate meta/main.yml for role {{ meta_role_name }}"
       ansible.builtin.template:
-        src: "meta_main.yml.j2"
+        src: "meta/main.yml.j2"
         dest: "{{ ansible_host }}/meta/main.yml"
         mode: "0644"
         validate: "ansible-lint %s"
