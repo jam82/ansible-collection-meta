@@ -12,7 +12,7 @@
 
 - [Requirements](#requirements)
 - [Dependencies](#dependencies)
-- [Supported Platforms](#supported-platforms)
+- [Supported Platforms](#platform-platforms)
 - [Role Variables](#role-variables)
 - [Example Playbook](#example-playbook)
 - [License](#license)
@@ -70,12 +70,12 @@ This role has no dependencies.
 {% if meta_platforms %}
 | OS Family | Distribution | Version | Container Image |
 |-----------|--------------|---------|-----------------|
-{% for supported in meta_platforms %}
-{% for tag in supported.tags %}
+{% for platform in meta_platforms %}
+{% for tag in platform.tags %}
 {% if loop.first %}
-| {{ supported.os_family }} | {{ supported.distribution }} | {{ tag }} | [{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }} ) |
+| {{ platform.os_family }} | {{ platform.distribution }} | {{ tag }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }} ) |
 {% else %}
-| | | {{ tag }} | [{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }} ) |
+| | | {{ tag }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }} ) |
 {% endif %}
 {% endfor %}
 {% endfor %}
