@@ -1,6 +1,7 @@
 # Contributing to {{ meta_role_name }}
 
 Thank you for your interest in contributing to the Ansible role{{ meta_role_name }}!
+
 Your contribution is welcome to help improve and enhance this role.
 
 ## Getting Started
@@ -25,6 +26,11 @@ This helps maintain consistency and readability across the codebase.
 Pleas make sure your contributions comply to standard `ansible-lint` rules and
 pass the molecule tests for all supported platforms.
 This ensures that the role continues to work as expected and prevents regressions.
+
 You can run the existing tests locally using the following command:
-`molecule test --scenario-name all`
+
+```bash
+molecule test --scenario-name all
+```
+
 This is using the `molecule-plugins[podman]` driver, so podman is required.
