@@ -70,9 +70,13 @@ This role has no dependencies.
 {% if meta_platforms %}
 | OS Family | Distribution | Version | Container Image |
 |-----------|--------------|---------|-----------------|
-{% for platform in meta_platforms %}
-{% for version in platform.versions %}
-| {{ platform.os_family }} | {{ platform.distribution }} | {{ version }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ version }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ version }} ) |
+{% for supported in meta_platforms %}
+{% for tag in supported.tags %}
+{% if loop.first %}
+| {{ supported.os_family }} | {{ supported.distribution }} | {{ tag }} | [{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }} ) |
+{% else %}
+| | | {{ tag }} | [{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ supported.distribution | lower }}:{{ tag }} ) |
+{% endif %}
 {% endfor %}
 {% endfor %}
 {% else %}

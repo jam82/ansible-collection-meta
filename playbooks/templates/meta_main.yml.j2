@@ -11,13 +11,11 @@ galaxy_info:
   license: {{ meta_license }}
   issue_tracker_url: {{ meta_issue_tracker_url }}
   min_ansible_version: "{{ meta_min_ansible_version }}"
-  {% if not meta_platforms %}platforms: []{% endif %}
-{% if meta_platforms %}
-platforms:
+  {% if meta_platforms %}platforms:
 {% for item in meta_platforms %}
-    - name: {{ item.platform.name }}
+    - name: {{ item.platform }}
       versions:
-{% for version in item.platform.versions %}
+{% for version in item.versions %}
         - {{ version }}
 {% endfor %}
 {% endfor %}
