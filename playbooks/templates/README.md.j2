@@ -73,9 +73,9 @@ This role has no dependencies.
 {% for platform in meta_platforms %}
 {% for tag in platform.tags %}
 {% if loop.first %}
-| {{ platform.os_family }} | {{ platform.distribution }} | {{ tag }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }} ) |
+| {{ platform.os_family }} | {{ platform.distribution }} | {{ tag }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }} ) |
 {% else %}
-| | | {{ tag }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }} ) |
+| | | {{ tag }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ tag }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }} ) |
 {% endif %}
 {% endfor %}
 {% endfor %}
@@ -85,6 +85,7 @@ This role has no specific platform requirements.
 
 ## Role Variables
 
+{% if not meta_role_variables %}No role variables specified.{% else %}
 The following are the default variables that should be adjusted:
 
 {% for variable in meta_role_variables %}
