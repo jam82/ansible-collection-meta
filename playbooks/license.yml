@@ -4,6 +4,7 @@
 
 - name: "Generate license file for role {{ meta_role_name }}"
   hosts: "{{ target | default('all') }}"
+  become: false
   gather_facts: false
   tasks:
     - name: "Generate LICENSE file from template"
