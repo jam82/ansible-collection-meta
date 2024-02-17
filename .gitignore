@@ -1,4 +1,7 @@
-__pycache__/
+# Test files and directories ---------------------------------------------------
+tests/output/
+# IDE files and directories ----------------------------------------------------
 .idea/
 .vscode/
-tests/output/
+# Python files and directories -------------------------------------------------
+__pycache__/
