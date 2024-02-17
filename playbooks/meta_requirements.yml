@@ -1,0 +1,21 @@
+---
+# name: ansible-collection-meta
+# file: playbooks/requirements.yml
+
+- name: "Generate meta/requirements.yml for roles inventory"
+  hosts: "{{ target | default('all') }}"
+  become: false
+  gather_facts: false
+  tasks:
+    - name: "Ensure that role and meta directory exist"
+      ansible.builtin.file:
+        path: "{{ ansible_host }}/meta"
+        state: directory
+        mode: "0755"
+
+    - name: "Generate meta/requirements.yml for role {{ meta_role_name }}"
+      ansible.builtin.template:
+        src: "meta_requirements.yml.j2"
+        dest: "{{ ansible_host }}/meta/requirements.yml"
+        mode: "0755"
+        validate: "ansible-lint %s"

@@ -32,7 +32,7 @@ After installation, you can use the modules provided by this collection in your 
 
 ### Inventory Plugins
 
-- **ansible_role_chroot_inventory**: Inventory plugin for using role directories as chroot inventory hosts
+- **ansible_role_inventory**: Inventory plugin for using role directories as inventory hosts with `ansible_connection=local`.
 
 ## Requirements
 

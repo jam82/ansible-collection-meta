@@ -1,4 +1,9 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Ansible Module for generating meta/argument_specs.yml from a provided
+default variable file, e.g. defaults/main.yml.
+"""
 
 import os
 import yaml

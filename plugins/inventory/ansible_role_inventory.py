@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
+
 """
 Ansible Inventory Plugin for Listing Directories with ansible-role- Prefix
 
 This module defines an Ansible inventory plugin that scans a specified
 base path for directories whose names start with 'ansible-role-'.
-It uses the chroot connection method to manage the discovered directories
+It uses the localdir connection method to manage the discovered directories
 as inventory hosts.
 """
 
@@ -14,7 +16,7 @@ from ansible.plugins.inventory import BaseInventoryPlugin
 
 
 DOCUMENTATION = '''
-    name: ansible_role_chroot_inventory
+    name: ansible_role_inventory
     plugin_type: inventory
     short_description: Lists directories matching a configurable prefix under a given path
     description:
@@ -36,8 +38,8 @@ EXAMPLES = '''
 [defaults]
 inventory_plugins = ./plugins/inventories
 
-# Example inventory file using the ansible_role_chroot_inventory plugin
-plugin: ansible_role_chroot_inventory
+# Example inventory file using the ansible_role_inventory plugin
+plugin: ansible_role_inventory
 base_path: /path/to/search
 search_prefix: ansible-role-
 '''
@@ -45,10 +47,10 @@ search_prefix: ansible-role-
 class InventoryModule(BaseInventoryPlugin):
     """
     Inventory plugin to list directories starting with ansible-role- under
-    a given path using chroot.
+    a given path using localdir connection plugin.
     """
 
-    NAME = 'ansible_role_chroot_inventory'
+    NAME = 'ansible_role_inventory'
 
     def verify_file(self, path):
         """
@@ -97,7 +99,7 @@ class InventoryModule(BaseInventoryPlugin):
                                 raise AnsibleError(f"Error reading {meta_path}: {exc}") from exc
                     self.inventory.add_host(host_name)
                     self.inventory.set_variable(host_name,
-                                                'ansible_connection', 'community.general.chroot')
+                                                'ansible_connection', 'local')
                     self.inventory.set_variable(host_name,
                                                 'ansible_host', os.path.join(root, dir_name))
 
