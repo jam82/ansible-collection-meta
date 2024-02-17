@@ -14,10 +14,10 @@ galaxy_info:
   {% if not meta_platforms %}platforms: []{% endif %}
 {% if meta_platforms %}
 platforms:
-{% for platform in meta_platforms %}
-    - name: {{ platform.name }}
+{% for item in meta_platforms %}
+    - name: {{ item.platform.name }}
       versions:
-{% for version in platform.versions %}
+{% for version in item.platform.versions %}
         - {{ version }}
 {% endfor %}
 {% endfor %}

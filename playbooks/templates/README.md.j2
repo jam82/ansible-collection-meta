@@ -71,7 +71,9 @@ This role has no dependencies.
 | OS Family | Distribution | Version | Container Image |
 |-----------|--------------|---------|-----------------|
 {% for platform in meta_platforms %}
-| {{ platform.os_family }} | {{ platform.distribution }} | {{ platform.version }} | {{ platform.container_image }} |
+{% for version in platform.versions %}
+| {{ platform.os_family }} | {{ platform.distribution }} | {{ version }} | [{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ version }}]( https://hub.docker.com/r/{{ meta_namespace }}/molecule-{{ platform.distribution | lower }}:{{ version }} ) |
+{% endfor %}
 {% endfor %}
 {% else %}
 This role has no specific platform requirements.
