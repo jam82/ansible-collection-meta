@@ -4,8 +4,8 @@
 
 ## Description
 
-This collection provides a set of modules designed to streamline the ansible
-role development and maintenance process.
+This collection provides a set of modules, plugins and playbooks designed to streamline ansible
+role development and maintenance.
 
 ## Installation
 
