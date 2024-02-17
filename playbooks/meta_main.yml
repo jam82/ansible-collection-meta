@@ -17,5 +17,5 @@
       ansible.builtin.template:
         src: "meta_main.yml.j2"
         dest: "{{ ansible_host }}/meta/main.yml"
-        mode: "0755"
+        mode: "0644"
         validate: "ansible-lint %s"

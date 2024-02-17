@@ -17,5 +17,5 @@
       ansible.builtin.template:
         src: "meta_requirements.yml.j2"
         dest: "{{ ansible_host }}/meta/requirements.yml"
-        mode: "0755"
+        mode: "0644"
         validate: "ansible-lint %s"

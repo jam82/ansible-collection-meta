@@ -1,5 +1,9 @@
 # Ansible Collection - jam82.meta
 
+![GitHub](https://img.shields.io/github/license/jam82/ansible-collection-meta) ![GitHub last commit](https://img.shields.io/github/last-commit/jam82/ansible-collection-meta) ![GitHub issues](https://img.shields.io/github/issues-raw/jam82/ansible-collection-meta)
+
+## Description
+
 This collection provides a set of modules designed to streamline the ansible
 role development and maintenance process.
 
@@ -30,13 +34,20 @@ After installation, you can use the modules provided by this collection in your 
 
 ## Plugins
 
-### Inventory Plugins
+### Inventory
 
 - **ansible_role_inventory**: Inventory plugin for using role directories as inventory hosts with `ansible_connection=local`.
 
+## Playbooks
+
+- **docs.yml**: Generate CONTRIBUTING.md, LICENSE and README.md
+- **meta_main.yml**: Generate meta/main.yml
+- **meta_requirements.yml**: Generate meta/requirements.yml
+- **remove.yml**: Remove configured files from role directory
+
 ## Requirements
 
-- Ansible 2.15 or later.
+- ansible >= 2.15
 
 ## Contributing
 
@@ -48,4 +59,4 @@ Contributions to this collection are welcome. Please ensure to follow best pract
 
 ## Authors
 
-- Jonas Mauer <jam@kabelmail.net>
+- Jonas Mauer <jam@kabelmail.net> (@jam82)
