@@ -2,18 +2,20 @@
 # role: {{ meta_role_name }}
 # file: meta/requirements.yml
 
-{% if not meta_requirements_collections %}collections: []{% endif %}
 {% if meta_requirements_collections %}
 collections:
 {% for collection in meta_requirements_collections %}
   - {{ collection }}
 {% endfor %}
+{% else %}
+collections: []
 {% endif %}
 
-{% if not meta_requirements_roles %}roles: []{% endif %}
 {% if meta_requirements_roles %}
 roles:
 {% for role in requirements_roles %}
   - {{ role }}
 {% endfor %}
+{% else %}
+roles: []
 {% endif %}
