@@ -1,0 +1,13 @@
+---
+# name: ansible-collection-meta
+# file: playbooks/docs.yml
+
+- name: "Generate license file for role {{ meta_role_name }}"
+  hosts: "{{ target | default('all') }}"
+  gather_facts: false
+  tasks:
+    - name: "Generate LICENSE file from template"
+      ansible.builtin.template:
+        src: 'LICENSE.j2'
+        dest: "{{ ansible_host }}/LICENSE"
+        mode: "0644"
