@@ -85,12 +85,15 @@ This role has no specific platform requirements.
 
 ## Role Variables
 
-{% if not meta_role_variables %}No role variables specified.{% else %}
+{% if not meta_role_variables %}
+No role default variables specified, see [defaults/main.yml](defaults/main.yml).
+{% else %}
 The following are the default variables that should be adjusted:
 
 {% for variable in meta_role_variables %}
 - `{{ variable.name }}`: {{ variable.description }} (Default: `{{ variable.default }}`)
 {% endfor %}
+{% endif %}
 
 ## Example Playbook
 
