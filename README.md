@@ -1,6 +1,6 @@
-# Ansible Collection - jam82.meta
+# Ansible Collection - jam82.dev
 
-![GitHub](https://img.shields.io/github/license/jam82/ansible-collection-meta) ![GitHub last commit](https://img.shields.io/github/last-commit/jam82/ansible-collection-meta) ![GitHub issues](https://img.shields.io/github/issues-raw/jam82/ansible-collection-meta)
+![GitHub](https://img.shields.io/github/license/jam82/ansible-collection-dev) ![GitHub last commit](https://img.shields.io/github/last-commit/jam82/ansible-collection-dev) ![GitHub issues](https://img.shields.io/github/issues-raw/jam82/ansible-collection-dev)
 
 ## Description
 
@@ -12,7 +12,7 @@ role development and maintenance.
 Your need to install the collection from github, as my galaxy account is broken:
 
 ```bash
-ansible-galaxy collection install git+https://github.com/jam82/ansible-collection-meta.git,main
+ansible-galaxy collection install git+https://github.com/jam82/ansible-collection-dev.git,main
 ```
 
 ## Usage

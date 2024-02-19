@@ -1,5 +1,5 @@
 ---
-# name: ansible-collection-meta
+# name: ansible-collection-dev
 # file: playbooks/meta.yml
 
 - name: "Generate meta/main.yml for roles inventory"

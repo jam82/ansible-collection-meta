@@ -1,5 +1,5 @@
 ---
-# name: ansible-collection-meta
+# name: ansible-collection-dev
 # file: playbooks/docs.yml
 
 - name: "Generate license file for role {{ meta_role_name }}"

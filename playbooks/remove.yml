@@ -1,5 +1,5 @@
 ---
-# name: ansible-collection-meta
+# name: ansible-collection-dev
 # file: playbooks/remove.yml
 
 - name: "Remove configured paths in relative_paths_to_remove"
