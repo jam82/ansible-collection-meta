@@ -2,7 +2,24 @@
 
 
 
+## v0.2.0 (2024-02-20)
+
+### Documentation
+
+* docs: update README with fetch_github_repos module and github_versions lookup plugin ([`a9dd72d`](https://github.com/jam82/ansible-collection-dev/commit/a9dd72d444bd594b8f3540b487ec582a8d4ed496))
+
+### Feature
+
+* feat: Add fetch_github_repos module for fetching and caching GitHub repository data. ([`7579ef6`](https://github.com/jam82/ansible-collection-dev/commit/7579ef6497fc8fc7d479bc59fcf458a2a33af59b))
+
+* feat: Add GitHub version lookup plugin ([`4046f26`](https://github.com/jam82/ansible-collection-dev/commit/4046f26f04e9d90560ff9487607dfe650e74d558))
+
+
 ## v0.1.1 (2024-02-20)
+
+### Build
+
+* build(release): version 0.1.1 ([`a59d44d`](https://github.com/jam82/ansible-collection-dev/commit/a59d44d63e5dfc005795ea97ebf92395d70b829d))
 
 ### Fix
 

@@ -1,6 +1,6 @@
 [project]
 name = "ansible-collection-dev"
-version = "0.1.1"
+version = "0.2.0"
 description = "Ansible collection supporting development tasks for Ansible roles."
 authors = ["Jonas Mauer"]
 license = "MIT"
