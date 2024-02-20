@@ -2,7 +2,18 @@
 
 
 
+## v0.2.1 (2024-02-20)
+
+### Fix
+
+* fix: version 1.0.0 linting issue and include galaxy.yml in version files ([`f49e75f`](https://github.com/jam82/ansible-collection-dev/commit/f49e75f511810c93feecb0e3a100b053017e5280))
+
+
 ## v0.2.0 (2024-02-20)
+
+### Build
+
+* build(release): version 0.2.0 ([`0e013b8`](https://github.com/jam82/ansible-collection-dev/commit/0e013b82badb7a31503324fb636c81683bdd497e))
 
 ### Documentation
 
