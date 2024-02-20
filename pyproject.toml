@@ -1,6 +1,6 @@
 [project]
 name = "ansible-collection-dev"
-version = "0.2.0"
+version = "1.0.0"
 description = "Ansible collection supporting development tasks for Ansible roles."
 authors = ["Jonas Mauer"]
 license = "MIT"
@@ -14,9 +14,12 @@ tag_format = "v$version"
 
 [tool.semantic_release]
 commit_message = "build(release): version {version}"
-major_on_zero = true
+major_on_zero = false
 upload_to_pypi = false
 upload_to_vcs_release = true
+version_variables = [
+    "galaxy.yml:version",
+]
 version_toml = [
     "pyproject.toml:project.version",
 ]
