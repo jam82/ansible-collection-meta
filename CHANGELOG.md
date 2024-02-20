@@ -2,9 +2,26 @@
 
 
 
+## v0.1.1 (2024-02-20)
+
+### Fix
+
+* fix: Use FQCNs in test_generate_argument_spec.yml ([`2e42e3a`](https://github.com/jam82/ansible-collection-dev/commit/2e42e3a0aef8dbfa11d3500c82060758adcabd85))
+
+### Refactor
+
+* refactor: Remove playbooks and templates, adopt README ([`e7ae838`](https://github.com/jam82/ansible-collection-dev/commit/e7ae838887a1b91da536de1632e5237618be5c70))
+
+### Style
+
+* style: Update GitHub URL in LICENSE file ([`88fa8e1`](https://github.com/jam82/ansible-collection-dev/commit/88fa8e15a0b8814895fe1fd3d6bf2d2f485224ef))
+
+
 ## v0.1.0 (2024-02-19)
 
 ### Build
+
+* build(release): version 0.1.0 ([`64dba7a`](https://github.com/jam82/ansible-collection-dev/commit/64dba7a9dcba10f2a2fcc6f5871523a671d08651))
 
 * build: add pre-commit-config and pyproject.toml ([`f4aa4ab`](https://github.com/jam82/ansible-collection-dev/commit/f4aa4ab6d1dc50d4655315760ce9d65de3a378cb))
 
