@@ -4,17 +4,17 @@
 
 - name: Test generate_argument_specs module
   hosts: localhost
-  gather_facts: no
+  gather_facts: false
   tasks:
     - name: Run generate_argument_specs module
-      my_namespace.my_collection.generate_argument_specs:
+      jam82.dev.generate_argument_specs:
         defaults_file: "defaults/main.yml"
         output_file: "meta/argument_specs.yml"
       register: result
-      check_mode: no
+      check_mode: false
 
     - name: Verify the output file was created
-      assert:
+      ansible.builtin.assert:
         that:
           - result.changed == true
           - "'argument_specs.yml' in result.message"
@@ -25,11 +25,11 @@
       register: argument_specs_content
 
     - name: Convert argument_specs content to a variable
-      set_fact:
+      ansible.builtin.set_fact:
         argument_specs: "{{ argument_specs_content['content'] | b64decode | from_yaml }}"
 
     - name: Assert content of argument_specs.yml
-      assert:
+      ansible.builtin.assert:
         that:
           - "'test_variable_string' in argument_specs.role_parameters"
           - "'test_variable_int' in argument_specs.role_parameters"
