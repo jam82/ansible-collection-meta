@@ -2,7 +2,18 @@
 
 
 
+## v0.2.2 (2024-02-20)
+
+### Fix
+
+* fix: Update version variable in pyproject.toml ([`e8e0526`](https://github.com/jam82/ansible-collection-dev/commit/e8e05260860f5c5b81f4213446784de7eaabe16e))
+
+
 ## v0.2.1 (2024-02-20)
+
+### Build
+
+* build(release): version 0.2.1 ([`4d7cfae`](https://github.com/jam82/ansible-collection-dev/commit/4d7cfaeb1be5cd21efce58721b8cb62ba71a544f))
 
 ### Fix
 
