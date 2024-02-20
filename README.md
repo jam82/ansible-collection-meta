@@ -17,15 +17,47 @@ ansible-galaxy collection install git+https://github.com/jam82/ansible-collectio
 
 ## Usage
 
-After installation, you can use the modules provided by this collection in your playbooks. Here's an example of how to use a module from this collection:
+The following examples demonstrate how to use modules and plugins from this collection.
+
+### Module `generate_argument_specs`
 
 ```yaml
     - hosts: all
       tasks:
         - name: "Generate meta/argument_specs.yml"
-          jam82.generate_argument_specs:
+          jam82.dev.generate_argument_specs:
             defaults_file: /path/to/role/defaults/main.yml
             ouput_file: /path/to/role/meta/argument_specs.yaml
+```
+
+### Inventory plugin `ansible_role_inventory`
+
+#### Ansible configuration in `ansible.cfg`
+
+```ini
+[defaults]
+
+collections_path    = ./collections
+inventory           = ./inventory.yml
+playbook_dir        = ./playbooks
+roles_path          = ./roles
+remote_tmp          = /tmp/ansible
+
+pipelining          = False
+strategy            = free
+
+[inventory]
+enable_plugins      = jam82.dev.ansible_role_inventory
+```
+
+#### Inventory file `inventory.yml`
+
+```yaml
+---
+plugin: jam82.dev.ansible_role_inventory
+base_path: "~/src/ansible/roles/"
+search_prefix: ansible-role-
+
 ```
 
 ## Modules
@@ -37,13 +69,6 @@ After installation, you can use the modules provided by this collection in your 
 ### Inventory
 
 - **ansible_role_inventory**: Inventory plugin for using role directories as inventory hosts with `ansible_connection=local`.
-
-## Playbooks
-
-- **docs.yml**: Generate CONTRIBUTING.md, LICENSE and README.md
-- **meta_main.yml**: Generate meta/main.yml
-- **meta_requirements.yml**: Generate meta/requirements.yml
-- **remove.yml**: Remove configured files from role directory
 
 ## Requirements
 
@@ -59,4 +84,4 @@ Contributions to this collection are welcome. Please ensure to follow best pract
 
 ## Authors
 
-- Jonas Mauer <jam@kabelmail.net> (@jam82)
+- Jonas Mauer (@jam82)
