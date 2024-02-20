@@ -62,6 +62,7 @@ search_prefix: ansible-role-
 
 ## Modules
 
+- **fetch_github_repos**: A module for fetching and caching repository data from Github.
 - **generate_argument_specs**: A module for generating `meta/argument_specs.yml` from a roles' `defaults/main.yml`.
 
 ## Plugins
@@ -69,6 +70,10 @@ search_prefix: ansible-role-
 ### Inventory
 
 - **ansible_role_inventory**: Inventory plugin for using role directories as inventory hosts with `ansible_connection=local`.
+
+### Lookup
+
+- **github_version**: Lookup plugin to fetch latest release version of a repo from Github.
 
 ## Requirements
 
