@@ -2,7 +2,32 @@
 
 
 
+## v0.3.0 (2024-03-19)
+
+### Chore
+
+* chore: update version control configuration and settings
+
+- Update commitizen version from `v3.15.0` to `v3.20.0` in `.pre-commit-config.yaml`
+- Remove `version_provider` and `tag_format` settings in `pyproject.toml`
+- Update the `version_variables` in `pyproject.toml` to include `galaxy.yml:version`
+
+Signed-off-by: Jonas Mauer &lt;jam@kabelmail.net&gt; ([`4ea5017`](https://github.com/jam82/ansible-collection-dev/commit/4ea501779ee5872e6ec4676beb030536681d57a3))
+
+### Feature
+
+* feat: add to_lintable_yaml filter because default ansible filters produce non-ansible-lintable output... (◔_◔) ([`9a5803a`](https://github.com/jam82/ansible-collection-dev/commit/9a5803a59ea3f7ea43fc3f66092038fa024d624e))
+
+### Fix
+
+* fix: disable tags due to overlaps with hostname ([`7ada8e0`](https://github.com/jam82/ansible-collection-dev/commit/7ada8e08921b9c4f2bc770d685e62c67085e688e))
+
+
 ## v0.2.2 (2024-02-20)
+
+### Build
+
+* build(release): version 0.2.2 ([`cc8ae30`](https://github.com/jam82/ansible-collection-dev/commit/cc8ae30fcb259535c82df32d35bafda9558e12f5))
 
 ### Fix
 
