@@ -1,6 +1,6 @@
-# Ansible Collection - jam82.dev
+# Ansible Collection - jomrr.dev
 
-![GitHub](https://img.shields.io/github/license/jam82/ansible-collection-dev) ![GitHub last commit](https://img.shields.io/github/last-commit/jam82/ansible-collection-dev) ![GitHub issues](https://img.shields.io/github/issues-raw/jam82/ansible-collection-dev)
+![GitHub](https://img.shields.io/github/license/jomrr/ansible-collection-dev) ![GitHub last commit](https://img.shields.io/github/last-commit/jomrr/ansible-collection-dev) ![GitHub issues](https://img.shields.io/github/issues-raw/jomrr/ansible-collection-dev)
 
 ## Description
 
@@ -12,7 +12,7 @@ role development and maintenance.
 Your need to install the collection from github, as my galaxy account is broken:
 
 ```bash
-ansible-galaxy collection install git+https://github.com/jam82/ansible-collection-dev.git,main
+ansible-galaxy collection install git+https://github.com/jomrr/ansible-collection-dev.git,main
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ The following examples demonstrate how to use modules and plugins from this coll
     - hosts: all
       tasks:
         - name: "Generate meta/argument_specs.yml"
-          jam82.dev.generate_argument_specs:
+          jomrr.dev.generate_argument_specs:
             defaults_file: /path/to/role/defaults/main.yml
             ouput_file: /path/to/role/meta/argument_specs.yaml
 ```
@@ -47,14 +47,14 @@ pipelining          = False
 strategy            = free
 
 [inventory]
-enable_plugins      = jam82.dev.ansible_role_inventory
+enable_plugins      = jomrr.dev.ansible_role_inventory
 ```
 
 #### Inventory file `inventory.yml`
 
 ```yaml
 ---
-plugin: jam82.dev.ansible_role_inventory
+plugin: jomrr.dev.ansible_role_inventory
 base_path: "~/src/ansible/roles/"
 search_prefix: ansible-role-
 
@@ -89,4 +89,4 @@ Contributions to this collection are welcome. Please ensure to follow best pract
 
 ## Authors
 
-- Jonas Mauer (@jam82)
+- Jonas Mauer (@jomrr)

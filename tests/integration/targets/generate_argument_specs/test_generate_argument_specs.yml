@@ -7,7 +7,7 @@
   gather_facts: false
   tasks:
     - name: Run generate_argument_specs module
-      jam82.dev.generate_argument_specs:
+      jomrr.dev.generate_argument_specs:
         defaults_file: "defaults/main.yml"
         output_file: "meta/argument_specs.yml"
       register: result
